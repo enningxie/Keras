@@ -58,5 +58,5 @@ loss, acc = network.evaluate(x_test, one_hot_test_labels_)
 
 print("loss: ", loss, " acc: ", acc)
 
-
+# lalal
 

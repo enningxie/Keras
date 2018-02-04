@@ -27,8 +27,8 @@ one_hot_train_labels = to_one_hot(train_labels)
 one_hot_test_labels = to_one_hot(test_labels)
 
 # there is a built-in way to do this in keras
-one_hot_train_labels_ = to_categorical(train_labels, num_classes=46)
-one_hot_test_labels_ = to_categorical(test_labels, num_classes=46)
+one_hot_train_labels_ = to_categorical(train_labels)
+one_hot_test_labels_ = to_categorical(test_labels)
 
 
 # model definition
@@ -41,12 +41,12 @@ def model(x, y, x_val, y_val):
     model_.compile(optimizer=optimizers.Adam(lr=0.001),
                    loss=losses.categorical_crossentropy,
                    metrics=[metrics.categorical_accuracy])
-    history = model_.fit(x, y, epochs=20, batch_size=512, validation_data=(x_val, y_val))
+    history = model_.fit(x, y, epochs=9, batch_size=512, validation_data=(x_val, y_val))
     return history, model_
 
 
 # create validation set
-x_val, y_val, x_partial, y_partial = create_validation_set(x_train, one_hot_train_labels_, 10000)
+x_val, y_val, x_partial, y_partial = create_validation_set(x_train, one_hot_train_labels_, 1000)
 
 history, network = model(x_partial, y_partial, x_val, y_val)
 

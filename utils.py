@@ -32,3 +32,12 @@ def create_validation_set(train_data, train_labels, num_set):
     partial_y_train = train_labels[num_set:]
     return x_val, y_val, partial_x_train, partial_y_train
 
+
+# Normalizing data
+def normalize_data(data):
+    mean = data.mean(axis=0)
+    std = data.std(axis=0)
+    normalized_data = (data - mean) / std
+    return normalized_data
+
+

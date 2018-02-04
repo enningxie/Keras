@@ -46,7 +46,7 @@ def model(x, y, x_val, y_val):
 
 
 # create validation set
-x_val, y_val, x_partial, y_partial = create_validation_set(x_train, one_hot_train_labels_, 10000)
+x_val, y_val, x_partial, y_partial = create_validation_set(x_train, one_hot_train_labels_, 1000)
 
 history, network = model(x_partial, y_partial, x_val, y_val)
 

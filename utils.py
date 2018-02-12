@@ -1,4 +1,6 @@
 import numpy as np
+import os
+import shutil
 
 
 # decoding newswires back to text
@@ -41,3 +43,17 @@ def normalize_data(data):
     return normalized_data
 
 
+# 5.4 mkdir things, accept pwd, mkdir return
+def mkdir_pwd(base_dir, join_dir):
+    ex_dir = os.path.join(base_dir, join_dir)
+    os.mkdir(ex_dir)
+    return ex_dir
+
+
+# 5.4 copy func for copy some files to another dir
+def copy_pwd(filename, start_index, end_index, origin_dir, to_dir):
+    fnames = [filename.format(i) for i in range(start_index, end_index)]
+    for fname in fnames:
+        src = os.path.join(origin_dir, fname)
+        dst = os.path.join(to_dir, fname)
+        shutil.copyfile(src, dst)

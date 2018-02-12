@@ -38,3 +38,4 @@ print(model.summary())
 
 # print
 print(test_loss, test_acc)
+>>>>>>> 5bb3d61d91ba395daa1d670504b9357533979bbb

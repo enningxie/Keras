@@ -3,8 +3,10 @@ from keras import layers
 from keras import models
 from keras import optimizers, losses, metrics
 from keras.preprocessing.image import ImageDataGenerator
-from keras_05_02 import train_dir, validation_dir
+# from keras_05_02 import train_dir, validation_dir
 import matplotlib.pyplot as plt
+train_dir = '/home/enningxie/Documents/Datasets/dogsvscats/data/train'
+validation_dir = '/home/enningxie/Documents/Datasets/dogsvscats/data/validation'
 
 model = models.Sequential()
 

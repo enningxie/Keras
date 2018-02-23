@@ -3,11 +3,11 @@ import os, shutil
 from utils import mkdir_pwd, copy_pwd
 
 # path to the directory where the original dataset was uncompressed.
-original_data_cats_dir = '/home/enningxie/Documents/Datasets/dogsvscats/PetImages/Cat'
-original_data_dogs_dir = '/home/enningxie/Documents/Datasets/dogsvscats/PetImages/Dog'
+original_data_cats_dir = '/home/cooli/Documents/DataSets/cat_vs_dog/PetImages/Cat'
+original_data_dogs_dir = '/home/cooli/Documents/DataSets/cat_vs_dog/PetImages/Dog'
 
 # directory where you'll store your smaller dataset
-base_dir = '/home/enningxie/Documents/Datasets/dogsvscats/data'
+base_dir = '/home/cooli/Documents/DataSets/cat_vs_dog/data'
 os.mkdir(base_dir)
 
 # directories for the training, validation, and test splits

@@ -5,8 +5,8 @@ from keras import optimizers, losses, metrics
 from keras.preprocessing.image import ImageDataGenerator
 # from keras_05_02 import train_dir, validation_dir
 import matplotlib.pyplot as plt
-train_dir = '/home/enningxie/Documents/Datasets/dogsvscats/data/train'
-validation_dir = '/home/enningxie/Documents/Datasets/dogsvscats/data/validation'
+train_dir = '/home/cooli/Documents/DataSets/cat_vs_dog/data/train'
+validation_dir = '/home/cooli/Documents/DataSets/cat_vs_dog/data/validation'
 
 model = models.Sequential()
 
@@ -52,7 +52,7 @@ validation_generator = test_datagen.flow_from_directory(
 history = model.fit_generator(
     train_generator,
     steps_per_epoch=100,
-    epochs=30,
+    epochs=5,
     validation_data=validation_generator,
     validation_steps=50
 )

@@ -87,5 +87,17 @@ x = image.img_to_array(img)  # convert it to a numpy array
 
 print(x.shape)
 
+x = x.reshape((1,) + x.shape)  # reshape it to (1, 150, 150, 3)
 
+print(x.shape)
 
+i = 0
+
+for batch in datagen.flow(x, batch_size=1):
+    plt.figure(i)
+    imgplot = plt.imshow(image.array_to_img(batch[0]))
+    i += 1
+    if i % 4 == 0:
+        break
+
+plt.show()

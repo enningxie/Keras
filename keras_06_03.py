@@ -7,7 +7,7 @@ from keras.models import Sequential
 from keras.layers import Embedding, Flatten, Dense
 from keras import optimizers, metrics, losses
 
-imdb_dir = '/home/cooli/Documents/DataSets/aclImdb'
+imdb_dir = '/home/enningxie/Documents/DataSets/aclImdb/aclImdb'
 train_dir = os.path.join(imdb_dir, 'train')
 
 labels = []
@@ -25,6 +25,10 @@ for label_type in ['neg', 'pos']:
             else:
                 labels.append(1)
 
+
+print(texts[0])
+print(labels[0])
+print(len(texts[0]))
 # Tokenizing the text of the raw IMDB data
 maxlen = 100
 training_samples = 200
@@ -36,7 +40,7 @@ tokenizer.fit_on_texts(texts)
 sequences = tokenizer.texts_to_sequences(texts)
 word_index = tokenizer.word_index
 print('Found %s unique tokens.' % len(word_index))
-
+print('-----')
 data = pad_sequences(sequences, maxlen=maxlen)
 
 labels = np.asarray(labels)
@@ -54,7 +58,7 @@ x_val = data[training_samples: training_samples + validation_samples]
 y_val = labels[training_samples: training_samples + validation_samples]
 
 # Parsing the Glove word-embeddings file
-glove_dir = '/home/cooli/Documents/DataSets/glove.6B'
+glove_dir = '/home/enningxie/Documents/DataSets/aclImdb/glove.6B'
 
 embeddings_index = {}
 f = open(os.path.join(glove_dir, 'glove.6B.100d.txt'))
@@ -64,7 +68,15 @@ for line in f:
     coefs = np.asarray(values[1:], dtype='float32')
     embeddings_index[word] = coefs
 f.close()
-
+count = 0
+for word, i in embeddings_index.items():
+    if count == 5:
+        break
+    print(word)
+    print(i)
+    print(len(i))
+    count += 1
+print()
 print('Found %s word vectors.' % len(embeddings_index))
 
 # preparing the GloVe word-embeddings matrix
@@ -103,5 +115,5 @@ history = model.fit(x_train, y_train,
 print(history.history)
 
 # save trained model
-# model.save('/home/cooli/Documents/Models/pre_trained_glove_model.h5')
+model.save('/home/enningxie/Documents/Models/pre_trained_glove_model.h5')
 

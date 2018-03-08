@@ -7,7 +7,7 @@ from keras.layers import Embedding, Flatten, Dense
 from keras import optimizers, losses, metrics
 
 
-imdb_dir = '/home/cooli/Documents/DataSets/aclImdb'
+imdb_dir = '/home/enningxie/Documents/DataSets/aclImdb/aclImdb'
 maxlen = 100
 max_words = 10000
 embedding_dim = 100
@@ -41,7 +41,7 @@ model.add(Flatten())
 model.add(Dense(32, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 
-model.load_weights('/home/cooli/Documents/Models/pre_trained_glove_model.h5')
+model.load_weights('/home/enningxie/Documents/Models/pre_trained_glove_model.h5')
 
 model.compile(optimizer=optimizers.Adam(lr=0.001),
               loss = losses.binary_crossentropy,
